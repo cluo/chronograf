@@ -1,19 +1,11 @@
-import React, {PropTypes} from 'react'
+import React, {Component, PropTypes} from 'react'
 import {Scrollbars} from 'react-custom-scrollbars'
 import classNames from 'classnames'
 
-const {
-  bool,
-  node,
-  string,
-} = PropTypes
-
-const FancyScroll = React.createClass({
-  propTypes: {
-    isKapacitorTheme: bool,
-    scrollBoxClass: string,
-    children: node.isRequired,
-  },
+class FancyScroll extends Component {
+  constructor(props) {
+    super(props)
+  }
 
   render() {
     const {isKapacitorTheme, scrollBoxClass, children} = this.props
@@ -32,8 +24,20 @@ const FancyScroll = React.createClass({
         {children}
       </Scrollbars>
     )
-  },
-})
+  }
+}
+
+const {
+  bool,
+  node,
+  string,
+} = PropTypes
+
+FancyScroll.propTypes = {
+  isKapacitorTheme: bool,
+  scrollBoxClass: string,
+  children: node.isRequired,
+}
 
 FancyScroll.defaultProps = {
   isKapacitorTheme: false,
