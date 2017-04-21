@@ -3,6 +3,7 @@ import {withRouter, Link} from 'react-router'
 import {getKapacitor} from 'shared/apis'
 import {removeAndLoadSources} from 'src/shared/actions/sources'
 import {connect} from 'react-redux'
+import FancyScroll from 'src/shared/components/FancyScroll'
 
 const {
   array,
@@ -74,7 +75,7 @@ export const ManageSources = React.createClass({
             </div>
           </div>
         </div>
-        <div className="page-contents">
+        <FancyScroll scrollBoxClass="page-contents">
           <div className="container-fluid">
             <div className="row">
               <div className="col-md-12">
@@ -121,7 +122,7 @@ export const ManageSources = React.createClass({
               </div>
             </div>
           </div>
-        </div>
+        </FancyScroll>
       </div>
     )
   },
