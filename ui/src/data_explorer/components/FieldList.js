@@ -5,6 +5,7 @@ import GroupByTimeDropdown from './GroupByTimeDropdown'
 
 import {showFieldKeys} from 'shared/apis/metaQuery'
 import showFieldKeysParser from 'shared/parsing/showFieldKeys'
+import FancyScroll from 'src/shared/components/FancyScroll'
 
 const {string, shape, func} = PropTypes
 const FieldList = React.createClass({
@@ -96,7 +97,7 @@ const FieldList = React.createClass({
     }
 
     return (
-      <div className="query-builder--list">
+      <FancyScroll scrollBoxClass="query-builder--list">
         {this.state.fields.map((fieldFunc) => {
           const selectedField = this.props.query.fields.find((f) => f.field === fieldFunc.field)
           return (
@@ -110,7 +111,7 @@ const FieldList = React.createClass({
             />
           )
         })}
-      </div>
+      </FancyScroll>
     )
   },
 

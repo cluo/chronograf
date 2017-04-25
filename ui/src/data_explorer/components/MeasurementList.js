@@ -4,6 +4,7 @@ import _ from 'lodash'
 
 import {showMeasurements} from 'shared/apis/metaQuery'
 import showMeasurementsParser from 'shared/parsing/showMeasurements'
+import FancyScroll from 'src/shared/components/FancyScroll'
 
 const MeasurementList = React.createClass({
   propTypes: {
@@ -98,14 +99,14 @@ const MeasurementList = React.createClass({
     const measurements = this.state.measurements.filter((m) => m.match(this.state.filterText))
 
     return (
-      <div className="query-builder--list">
+      <FancyScroll scrollBoxClass="query-builder--list">
         {measurements.map((measurement) => {
           const isActive = measurement === this.props.query.measurement
           return (
             <div className={classNames('query-builder--list-item', {active: isActive})} key={measurement} onClick={_.wrap(measurement, this.props.onChooseMeasurement)}>{measurement}</div>
           )
         })}
-      </div>
+      </FancyScroll>
     )
   },
 

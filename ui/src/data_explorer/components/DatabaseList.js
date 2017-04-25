@@ -5,6 +5,7 @@ import classNames from 'classnames'
 import {showDatabases, showRetentionPolicies} from 'shared/apis/metaQuery'
 import showDatabasesParser from 'shared/parsing/showDatabases'
 import showRetentionPoliciesParser from 'shared/parsing/showRetentionPolicies'
+import FancyScroll from 'src/shared/components/FancyScroll'
 
 const DatabaseList = React.createClass({
   propTypes: {
@@ -62,7 +63,7 @@ const DatabaseList = React.createClass({
     return (
       <div className="query-builder--column">
         <div className="query-builder--heading">Databases</div>
-        <div className="query-builder--list">
+        <FancyScroll scrollBoxClass="query-builder--list">
           {this.state.namespaces.map((namespace) => {
             const {database, retentionPolicy} = namespace
             const isActive = database === query.database && retentionPolicy === query.retentionPolicy
@@ -73,7 +74,7 @@ const DatabaseList = React.createClass({
               </div>
             )
           })}
-        </div>
+        </FancyScroll>
       </div>
     )
   },

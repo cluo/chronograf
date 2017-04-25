@@ -7,6 +7,7 @@ import TagListItem from './TagListItem'
 import {showTagKeys, showTagValues} from 'shared/apis/metaQuery'
 import showTagKeysParser from 'shared/parsing/showTagKeys'
 import showTagValuesParser from 'shared/parsing/showTagValues'
+import FancyScroll from 'src/shared/components/FancyScroll'
 
 const {string, shape, func, bool} = PropTypes
 const TagList = React.createClass({
@@ -117,7 +118,7 @@ const TagList = React.createClass({
     }
 
     return (
-      <div className="query-builder--list">
+      <FancyScroll scrollBoxClass="query-builder--list">
         {_.map(this.state.tags, (tagValues, tagKey) => {
           return (
             <TagListItem
@@ -131,7 +132,7 @@ const TagList = React.createClass({
             />
           )
         })}
-      </div>
+      </FancyScroll>
     )
   },
 })
